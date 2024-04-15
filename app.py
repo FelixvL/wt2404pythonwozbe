@@ -18,3 +18,9 @@ def eigenaren_allen():
 @app.route("/huizen/allen")
 def huizen_allen():
   return woz_data_opvragen.toon_alle_huizen()
+
+
+
+@app.route("/cbs/woz_per_regio_en_steden")
+def woz_per_regio_en_steden():
+  return woz_data_opvragen.woz_per_regio_en_steden()

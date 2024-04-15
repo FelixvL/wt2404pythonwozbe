@@ -1,4 +1,6 @@
 import mysql.connector
+import pandas
+from json import loads, dumps
 
 def verkrijgverbinding():
     mijndb = mysql.connector.connect(
@@ -37,3 +39,10 @@ def toon_alle_huizen():
         dict(zip(keys, row)) for row in mijnresultaat
     ]
     return data
+
+def woz_per_regio_en_steden():
+    bestandsinhoud = pandas.read_csv("woz_bewerkt.csv", sep=";")
+    print(bestandsinhoud)
+    result = bestandsinhoud.to_json(orient="records")
+    parsed = loads(result)
+    return dumps(parsed, indent=4)  
