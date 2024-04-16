@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 import woz_data_opvragen
 import bestand1
+import bestand6
 
 app = Flask(__name__)
 CORS(app)
@@ -15,12 +16,9 @@ def helloWorld():
 def eigenaren_allen():
   return woz_data_opvragen.toon_alle_eigenaren()
 
-
 @app.route("/huizen/allen")
 def huizen_allen():
   return woz_data_opvragen.toon_alle_huizen()
-
-
 
 @app.route("/cbs/woz_per_regio_en_steden")
 def woz_per_regio_en_steden():
@@ -30,3 +28,6 @@ def woz_per_regio_en_steden():
 def felixenjustin():
   return bestand1.felixenjustin()
 
+@app.route("/amanienleon")
+def amanienleon():
+    return bestand6.amanienleon()
