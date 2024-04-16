@@ -6,6 +6,7 @@ import bestand1
 import vivianenleoni
 import woz_top20
 import woz_gemeentes_opvragen
+import huurwoningen
 
 app = Flask(__name__)
 CORS(app)
@@ -44,3 +45,8 @@ def top20():
 @app.route("/gemeentes")
 def zoekGemeente():
   return woz_gemeentes_opvragen.zoekGemeente()
+
+@app.route("/filter_huurwoningen/<zoekterm>/<bedragrange>")
+def filter_huurwoningen(zoekterm, bedragrange):
+  return huurwoningen.filter_huurwoningen(zoekterm, bedragrange)
+
