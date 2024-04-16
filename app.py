@@ -5,6 +5,7 @@ import woz_data_opvragen
 import bestand1
 import vivianenleoni
 import woz_top20
+import woz_gemeentes_opvragen
 
 app = Flask(__name__)
 CORS(app)
@@ -40,3 +41,6 @@ def pagina5(zoekterm):
 def top20():
   return woz_top20.bestand_inlezen()
 
+@app.route("/gemeentes")
+def zoekGemeente():
+  return woz_gemeentes_opvragen.zoekGemeente()
