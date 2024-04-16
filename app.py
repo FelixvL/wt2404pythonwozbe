@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from flask import request
+import unittest
 
 import woz_data_opvragen
 import bestand1
@@ -8,6 +9,8 @@ import vivianenleoni
 import woz_top20
 import woz_gemeentes_opvragen
 import huurwoningen
+
+import testen.test1felix as tt
 
 app = Flask(__name__)
 CORS(app)
@@ -59,3 +62,23 @@ def flt(term):
 @app.route("/gemeentes/<inputGemeente>")
 def zoekGemeente2(inputGemeente):
     return woz_gemeentes_opvragen.zoekGemeente(inputGemeente)
+
+
+class FlaskTestCase(unittest.TestCase):
+    def setUp(self):
+        app.testing = True
+        self.client = app.test_client()
+
+    def test_index(self):
+        # Stuur een GET-verzoek naar de index route
+        response = self.client.get('/')
+        # Controleer of het verzoek succesvol was
+        self.assertEqual(response.status_code, 200)
+        # Controleer de responsedata
+        self.assertEqual(response.data, b'Root Mount WOZ')
+
+    def test_tweede(self):
+        tt.proberen(self)
+
+if __name__ == '__main__':
+    unittest.main()
