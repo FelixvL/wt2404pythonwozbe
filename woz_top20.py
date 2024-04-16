@@ -1,4 +1,5 @@
 import pandas as pd
+from json import loads, dumps
 
 def bestand_inlezen():
     data = pd.read_csv("woz_bewerkt.csv", delimiter=';')
@@ -6,7 +7,10 @@ def bestand_inlezen():
     top_20 = sorted_data.head(20)[['Regionaam', 'Koopwoningen']]
     # print(type(top_20))
     # print(top_20)
-    return "go"
+    result = top_20.to_json(orient="records")
+    parsed = loads(result)
+    return dumps(parsed, indent=4)
+
 
 def main():
     bestand_inlezen()
