@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from flask import request
 
 import woz_data_opvragen
 import bestand1
@@ -23,7 +24,6 @@ def eigenaren_allen():
 @app.route("/huizen/allen")
 def huizen_allen():
   return woz_data_opvragen.toon_alle_huizen()
-
 
 
 @app.route("/cbs/woz_per_regio_en_steden")
@@ -55,3 +55,7 @@ def filter_huurwoningen(zoekterm, bedragrange):
 def flt(term):
   return woz_data_opvragen.flt(term)
 
+
+@app.route("/gemeentes/<inputGemeente>")
+def zoekGemeente(inputGemeente):
+    return woz_gemeentes_opvragen.zoekGemeente(inputGemeente)
