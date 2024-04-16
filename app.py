@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 import woz_data_opvragen
 import bestand1
+import vivianenleoni
 
 app = Flask(__name__)
 CORS(app)
@@ -29,4 +30,8 @@ def woz_per_regio_en_steden():
 @app.route("/felixenjustin")
 def felixenjustin():
   return bestand1.felixenjustin()
+
+@app.route("/pagina5/<zoekterm>")
+def pagina5(zoekterm):
+  return vivianenleoni.pagina5(zoekterm)
 
