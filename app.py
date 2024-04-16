@@ -35,3 +35,6 @@ def felixenjustin():
 def pagina5(zoekterm):
   return vivianenleoni.pagina5(zoekterm)
 
+@app.route("/gemeentes")
+def zoekGemeente():
+  return woz_gemeentes_opvragen.zoekGemeente()
