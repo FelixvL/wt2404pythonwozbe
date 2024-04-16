@@ -4,6 +4,7 @@ from flask_cors import CORS
 import woz_data_opvragen
 import bestand1
 import vivianenleoni
+import woz_gemeentes_opvragen
 
 app = Flask(__name__)
 CORS(app)
