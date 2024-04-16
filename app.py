@@ -38,6 +38,24 @@ def felixenjustin():
 def pagina5(zoekterm):
   return vivianenleoni.pagina5(zoekterm)
 
+@app.route("/woz_top20")
+def top20():
+  return woz_top20.bestand_inlezen()
+
+@app.route("/gemeentes")
+def zoekGemeente():
+  return woz_gemeentes_opvragen.zoekGemeente()
+
+@app.route("/filter_huurwoningen/<zoekterm>/<bedragrange>")
+def filter_huurwoningen(zoekterm, bedragrange):
+  return huurwoningen.filter_huurwoningen(zoekterm, bedragrange)
+
+
+@app.route("/felixliketest/<term>")
+def flt(term):
+  return woz_data_opvragen.flt(term)
+
+
 @app.route("/gemeentes/<inputGemeente>")
 def zoekGemeente(inputGemeente):
     return woz_gemeentes_opvragen.zoekGemeente(inputGemeente)
