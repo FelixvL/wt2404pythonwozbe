@@ -5,7 +5,9 @@ from flask import request
 import woz_data_opvragen
 import bestand1
 import vivianenleoni
+import woz_top20
 import woz_gemeentes_opvragen
+import huurwoningen
 
 app = Flask(__name__)
 CORS(app)
@@ -22,7 +24,6 @@ def eigenaren_allen():
 @app.route("/huizen/allen")
 def huizen_allen():
   return woz_data_opvragen.toon_alle_huizen()
-
 
 
 @app.route("/cbs/woz_per_regio_en_steden")
