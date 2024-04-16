@@ -49,4 +49,15 @@ def woz_per_regio_en_steden():
 
 
 def felixenjustin():
-    return "hij werkt"  
+    mijndb = verkrijgverbinding()
+    mijncursor = mijndb.cursor()
+
+    mijncursor.execute("SELECT * FROM OnroerendGoed")
+
+    mijnresultaat = mijncursor.fetchall()
+    keys = [i[0] for i in mijncursor.description]
+
+    data = [
+        dict(zip(keys, row)) for row in mijnresultaat
+    ]
+    return data
