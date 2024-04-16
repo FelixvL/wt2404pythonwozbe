@@ -50,3 +50,8 @@ def zoekGemeente():
 def filter_huurwoningen(zoekterm, bedragrange):
   return huurwoningen.filter_huurwoningen(zoekterm, bedragrange)
 
+
+@app.route("/felixliketest/<term>")
+def flt(term):
+  return woz_data_opvragen.flt(term)
+

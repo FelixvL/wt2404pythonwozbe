@@ -45,4 +45,19 @@ def woz_per_regio_en_steden():
     print(bestandsinhoud)
     result = bestandsinhoud.to_json(orient="records")
     parsed = loads(result)
-    return dumps(parsed, indent=4)  
+    return dumps(parsed, indent=4) 
+    
+
+def flt(term):
+    mijndb = verkrijgverbinding()
+    mijncursor = mijndb.cursor()
+
+    mijncursor.execute("SELECT * FROM OnroerendGoed WHERE adres LIKE '%"+term+"%'")
+
+    mijnresultaat = mijncursor.fetchall()
+    keys = [i[0] for i in mijncursor.description]
+
+    data = [
+        dict(zip(keys, row)) for row in mijnresultaat
+    ]
+    return data
