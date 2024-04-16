@@ -57,5 +57,5 @@ def flt(term):
 
 
 @app.route("/gemeentes/<inputGemeente>")
-def zoekGemeente(inputGemeente):
+def zoekGemeente2(inputGemeente):
     return woz_gemeentes_opvragen.zoekGemeente(inputGemeente)
