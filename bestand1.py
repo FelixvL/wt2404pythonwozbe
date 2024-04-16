@@ -61,3 +61,6 @@ def felixenjustin():
         dict(zip(keys, row)) for row in mijnresultaat
     ]
     return data
+
+def optellen(getal1, getal2):
+    return getal1 + getal2
