@@ -4,6 +4,8 @@ from flask_cors import CORS
 import woz_data_opvragen
 import bestand1
 import vivianenleoni
+import woz_top20
+import woz_gemeentes_opvragen
 
 app = Flask(__name__)
 CORS(app)
@@ -34,6 +36,10 @@ def felixenjustin():
 @app.route("/pagina5/<zoekterm>")
 def pagina5(zoekterm):
   return vivianenleoni.pagina5(zoekterm)
+
+@app.route("/woz_top20")
+def top20():
+  return woz_top20.bestand_inlezen()
 
 @app.route("/gemeentes")
 def zoekGemeente():
