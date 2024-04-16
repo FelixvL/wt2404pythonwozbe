@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from flask import request
 
 import woz_data_opvragen
 import bestand1
@@ -36,6 +37,6 @@ def felixenjustin():
 def pagina5(zoekterm):
   return vivianenleoni.pagina5(zoekterm)
 
-@app.route("/gemeentes")
-def zoekGemeente():
-  return woz_gemeentes_opvragen.zoekGemeente()
+@app.route("/gemeentes/<inputGemeente>")
+def zoekGemeente(inputGemeente):
+    return woz_gemeentes_opvragen.zoekGemeente(inputGemeente)

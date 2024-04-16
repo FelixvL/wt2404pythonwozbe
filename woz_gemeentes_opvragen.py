@@ -15,14 +15,16 @@ def verkrijgverbinding():
 #SELECT naam, contactgegevens
 #FROM gemeente
 #WHERE naam = <zoekterm>
-def zoekGemeente():
+def zoekGemeente(inputGemeente):
     mijndb = verkrijgverbinding()
     mijncursor = mijndb.cursor()
 
-    mijncursor.execute("SELECT contactgegevens FROM gemeente")
+    mijncursor.execute("SELECT naam, contactgegevens FROM gemeente WHERE naam like '%"+ inputGemeente + "%'") #naam = zoekterm
 
     mijnresultaat = mijncursor.fetchall()
     keys = [i[0] for i in mijncursor.description]
+    # print(mijncursor.description)
+    # print(keys)
 
     data = [
         dict(zip(keys, row)) for row in mijnresultaat
