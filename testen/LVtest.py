@@ -12,7 +12,9 @@ class MyTestCase(unittest.TestCase):
     def test_correct_string(self):
         result = LV_stringcontrol.valideer_srange(self.input_string, self.minimum, self.maximum)
         self.assertTrue(result)
-
+    def allen():
+        this.test_incorrect_max_string()
+        
     def test_incorrect_min_string(self): #Def 'incorrect' omschrijft de testcase verwachte output
         # Given
         minimum = 10
@@ -27,11 +29,9 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(result)
 
     def test_incorrect_string_short(self):
-        print("hier zijn we gekomen")
         input_string = 'hi'
         result = LV_stringcontrol.valideer_srange(input_string, self.minimum, self.maximum)
         self.assertFalse(result)
-        self.assertEqual(5,5)
 
     def test_incorrect_string_long(self):
         input_string = 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii'
