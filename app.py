@@ -11,6 +11,7 @@ import woz_gemeentes_opvragen
 import huurwoningen
 
 import testen.test1felix as tt
+import testen.testNJ 
 
 app = Flask(__name__)
 CORS(app)
@@ -79,6 +80,9 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_tweede(self):
         tt.proberen(self)
+
+    def derde_test(self):
+        testen.testNJ.proberen(self)
 
 if __name__ == '__main__':
     unittest.main()
