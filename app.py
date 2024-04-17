@@ -12,6 +12,7 @@ import huurwoningen
 
 import testen.test1felix as tt
 import testen.testNJ 
+import testen.testtllt
 
 app = Flask(__name__)
 CORS(app)
@@ -79,10 +80,16 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(response.data, b'Root Mount WOZ')
 
     def test_tweede(self):
+        print("1")
         tt.proberen(self)
 
-    def derde_test(self):
+    def test_derde(self):
+        print("2")
         testen.testNJ.proberen(self)
+
+    def test_vierde(self):
+        print("3")
+        testen.testtllt.proberen(self)
 
 if __name__ == '__main__':
     unittest.main()
