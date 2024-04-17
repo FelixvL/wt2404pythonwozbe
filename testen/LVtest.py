@@ -1,8 +1,8 @@
 import unittest
-import LV_stringcontrol
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import LV_stringcontrol
 
 class MyTestCase(unittest.TestCase):
     input_string = 'voorbeeld'
@@ -27,9 +27,11 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(result)
 
     def test_incorrect_string_short(self):
+        print("hier zijn we gekomen")
         input_string = 'hi'
         result = LV_stringcontrol.valideer_srange(input_string, self.minimum, self.maximum)
         self.assertFalse(result)
+        self.assertEqual(5,5)
 
     def test_incorrect_string_long(self):
         input_string = 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii'
