@@ -11,6 +11,9 @@ import woz_gemeentes_opvragen
 import huurwoningen
 
 import testen.test1felix as tt
+import testen.testNJ 
+import testen.testtllt
+import testen.LVtest as lva
 
 app = Flask(__name__)
 CORS(app)
@@ -78,7 +81,20 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(response.data, b'Root Mount WOZ')
 
     def test_tweede(self):
+        print("1")
         tt.proberen(self)
+
+    def test_derde(self):
+        print("2")
+        testen.testNJ.proberen(self)
+
+    def test_vierde(self):
+        print("3")
+        testen.testtllt.proberen(self)
+
+    def test_vijfde(self):
+        print("5")
+        lva.MyTestCase()
 
 if __name__ == '__main__':
     unittest.main()
